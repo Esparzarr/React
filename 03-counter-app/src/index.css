@@ -6,3 +6,9 @@ html,body{
     padding: 75px;
 
 }
+
+button{
+    font-size: 1.0rem;
+    margin-right: 10px;
+    padding: 10px;
+}
