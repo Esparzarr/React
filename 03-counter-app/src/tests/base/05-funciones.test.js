@@ -11,7 +11,7 @@ describe(' Pruebas en 05-funciones', () => {
 
         const user = getUser();
         
-        expect( user ).toBe( userTest );
+        expect( user ).toEqual( userTest );
     })
     
 })
