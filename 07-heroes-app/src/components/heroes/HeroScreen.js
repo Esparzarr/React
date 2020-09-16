@@ -1,20 +1,30 @@
-import React from 'react'
-import { Redirect, useParams } from 'react-router-dom'
+import React, { useMemo } from 'react';
+import { useParams, Redirect } from 'react-router-dom';
 import { getHeroById } from '../../selectors/getHeroById';
 
-export const HeroScreen = () => {
+export const HeroScreen = ( { history }) => {
 
-    const {heroeId} = useParams();
-
-    const hero = getHeroById( heroeId );
-
-    if (!hero){
+    const { heroeId } = useParams();
+    
+    const hero = useMemo(() => getHeroById( heroeId ), [heroeId ] );
+    // const hero = getHeroById( heroeId );
+    
+    if ( !hero ){
         return <Redirect to ="/"/>
     }
 
+    const handleReturn = () => {
+        if (history.length <= 2 ){
+            history.push('/')
+        }else{
+            history.goBack();
+        }
+        
+    }
+
     const {
-        superhero,
         publisher,
+        superhero,
         alter_ego,
         first_appearance,
         characters,
@@ -26,7 +36,7 @@ export const HeroScreen = () => {
             <div className="col-4">
                 <img 
                     src={`../assets/heroes/${heroeId}.jpg`} 
-                    className="img-thumbnail" 
+                    className="img-thumbnail animate__animated animate__fadeInLeft" 
                     alt={ superhero }
                 />
             </div>
@@ -44,6 +54,7 @@ export const HeroScreen = () => {
 
                 <button 
                     className="btn btn-outline-info"
+                    onClick={ handleReturn }
                     
                 >
                     Return
