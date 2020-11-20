@@ -9,12 +9,15 @@ import ReactDOM from 'react-dom';
 // import { FocusScreen } from './components/04-useRef/FocusScreen';
 // import { RealExampleRef } from './components/04-useRef/RealExampleRef';
 // import { Loyout } from './components/05-useLayoutEffect/Loyout';
-import { Memorize } from './components/06-memos/Memorize';
+// import { Memorize } from './components/06-memos/Memorize';
+// import { Memohook } from './components/06-memos/MemoHook';
+// import { CallBackHook } from './components/06-memos/CallBackHook'; 
+import { Padre } from './components/07-tarea-memo/Padre';
 
 
 
 ReactDOM.render(
-  <Memorize />,
+  <Padre />,
   document.getElementById('root')
 );
 
